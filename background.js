@@ -14,6 +14,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
                 }
             })
             .catch(error => sendResponse({ lyrics: `Error: ${error.message}` }));
-        return true; // Keep the message channel open for sendResponse
+        return true;
     }
 });
