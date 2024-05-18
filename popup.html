@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            width: 300px;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        #lyrics {
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h2>Lyrics</h2>
+    <div id="lyrics">No song playing...</div>
+
+    <script>
+        chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+            if (request.type === "UPDATE_LYRICS") {
+                document.getElementById('lyrics').textContent = request.lyrics || "No lyrics found.";
+            }
+        });
+    </script>
+</body>
+</html>
